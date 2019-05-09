@@ -1,4 +1,8 @@
 version: '3.4'
+
+networks:
+  mongo:
+
 services:
   my-container:
     image: node:10
@@ -16,4 +20,9 @@ services:
   mymongodb:
     image: mongo
     networks:
-        - mongo
+      - mongo
+    volumes:
+      - mongo:/data/db
+
+volumes:
+  mongo:
